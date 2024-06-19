@@ -1,0 +1,7 @@
+先把环境弄了conda env create -f coop_environment.yml
+然后把book数据集下载到amzn_raw/data
+然后做预处理
+python preprocess.py amzn amzn_raw/data/amazon > data/amzn/train.jsonl
+然后训练
+python train.py config/bimeanvae/amzn.jsonnet -s log/bimeanvae/amzn/ex1
+最后评估python coop/search.py log/bimeanvae/amzn/ex1
